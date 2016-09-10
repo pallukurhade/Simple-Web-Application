@@ -1,0 +1,32 @@
+.jumbotron p {
+	padding:14%;
+}
+.upload {
+    position:relative; 
+    overflow:hidden; 
+    height:350px;
+    background:#f3f3f3; 
+    border:2px dashed #e8e8e8;
+	top: 12px;
+}
+
+#filePhoto{
+    position:absolute;
+    height:400px;
+    top:-2px;
+    left:0;
+    z-index:2;
+    opacity:0;
+    cursor:pointer;
+	width:100%;
+}
+
+.upload img{
+    position:absolute;
+    height:352px;
+    top:-1px;
+    left:-1px;
+    z-index:1;
+    border:none;
+	width:100%;
+}

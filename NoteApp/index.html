@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Note</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+	    <div class="page-header text-center">
+          <h1>&#10021;Notes&#10021;</h1> 
+		</div> 
+        <div class="row">	
+         		
+    	  <div class="col-sm-4" id="add-note">
+		   <h3>Add Note</h3>
+			<form role="form">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name"/>
+				</div>
+				<div class="form-group">
+					<label for="content">Content</label>
+					<textarea rows="4" cols="50" class="form-control" id="content"></textarea>
+				</div>
+				<button id="add" class="btn btn-primary" type="button">Add</button>
+				<p>
+			</form>
+		</div>
+		<div class="col-sm-4" id="list-note">
+			<h3>View Note</h3>
+			<ul id="list">
+			</ul>
+		</div>
+		<div id="edit-note" class="col-sm-4 hide">
+		   <h3>Edit/Remove Note</h3>
+			<form role="form">
+				<div class="form-group">
+					<label for="edit-name">Name</label>
+					<input type="text" class="form-control" id="edit-name"/>
+				</div>
+				<div class="form-group">
+					<label for="edit-content">Content</label>
+					<textarea rows="4" cols="50" class="form-control" id="edit-content"></textarea>
+				</div>
+				<button id="save" class="btn btn-primary" type="button">Save</button>
+				<button id="remove" class="btn btn-danger" type="button">Remove</button>
+				<button id="cancel" class="btn btn-default" type="button">Cancel</button>
+			</form>
+		</div>
+	 </div>	
+	</div>
+  </body>
+
+</html>

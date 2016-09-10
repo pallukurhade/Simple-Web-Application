@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>News</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'><link rel="stylesheet" type="text/css" href="Core.css"/>
+<link rel="stylesheet" type="text/css" href="wikis.css"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="custom.css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+ /*Adding Active Class to First Element of Article Element*/
+ $( "div.article:first-child" ).addClass( "active" ); 
+ $( "ul.control li:first-child" ).addClass( "active" ); 
+ $( "ul.ui-tabs-nav li:first-child" ).addClass( "ui-state-active" ); 
+ $("div#jqTabs-1").addClass("show"); 
+ 
+ /*Adding Active Class to all li Element*/
+ $('ul.control li').each(function(index){
+ $(this).addClass("article"+index);
+
+});
+
+$( "div.carousel3").find("ul.control li" ).click(function() {
+ 
+  /*Getting and Storing the Object of Active Class Element*/
+  var $activeElement = $( "div.carousel3").find("div.active"); 
+  var $activeLi = $( "div.carousel3").find("li.active"); 
+  
+  /*Matching the index of li and article div*/  
+  var articleindex = $( "div.carousel3").find(" li" ).index( this );
+  
+  if ($(this).hasClass('active')) {
+          return false;
+   }else{
+  /*Removing Active Class Based On the Index*/
+  $activeElement.fadeOut(800, function() {
+    $(this).removeClass("active");
+    });
+	
+    $activeLi.removeClass("active");
+  
+  /*Adding Active Class Based On the Index*/
+  
+   $( "div.carousel3").find("div.article" ).eq( articleindex ).fadeIn(800, function() {
+    $(this).addClass("active");
+    });
+	
+ 
+ $( "div.carousel3").find("li").eq( articleindex ).addClass( "active" );
+  
+  /*Removing Active Class Based On the Index*/
+  $activeElement.fadeOut(800, function() {
+    $(this).removeClass("active");
+    });
+	
+  $activeLi.removeClass("active");
+  }
+});
+$("div.carousel3").find("div.arrowNext").click(function() {
+   
+   var $activeElement = $("div.carousel3").find("div.active");
+   var $activeLi = $("div.carousel3").find("li.active"); 
+  
+   /*checks if the article is last element*/
+   if($("div.carousel3").find("div.article.active").next("div.article").length > 0) {
+    
+	/*For Article Elements */
+	$("div.carousel3").find("div.active" ).next().stop(true, true).fadeIn(800, function() {
+    $(this).addClass("active");
+    });
+	
+	$activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+    
+	/*For li Elements */
+	$("div.carousel3").find("li.active" ).next().addClass( "active" );
+    $activeLi.removeClass("active");
+    
+}else
+     {  
+	  
+	  $("div.carousel3").find("div.article:first-child").addClass("active");
+	  $("div.carousel3").find("li:first-child" ).addClass( "active" );
+    
+	
+	$activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+    $activeLi.removeClass("active");
+   } 	  
+		
+  });
+
+  $("div.carousel3").find("div.arrowPrevious").click(function() {
+  
+  var $activeElement = $("div.carousel3").find("div.active");
+  var $activeLi = $("div.carousel3").find("li.active"); 
+  
+  
+  if($("div.carousel3").find("div.article.active").prev("div.article").length > 0) {
+
+  
+  /*For Article Elements */
+  
+  $("div.carousel3").find("div.active" ).prev().stop(true, true).fadeIn(800, function() {
+    $(this).addClass("active");
+    });
+	
+  $activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+ 
+  /*For li Elements */
+  $("div.carousel3").find("li.active" ).prev().addClass( "active" );
+  $activeLi.removeClass("active");
+
+ }else
+     {  
+	  
+	  
+	  $("div.carousel3").find("div.article:last-child").addClass("active");
+	  $("div.carousel3").find("li:last-child" ).addClass( "active" );
+    
+	
+	$activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+    $activeLi.removeClass("active");
+   } 	  
+		
+  });
+  
+$( "div.carousel2").find("ul.control li" ).click(function() {
+ 
+  /*Getting and Storing the Object of Active Class Element*/
+   var $activeElement = $( "div.carousel2").find("div.active"); 
+   var $activeLi = $( "div.carousel2").find("li.active"); 
+  
+ /*Matching the index of li and article div*/   
+   var articleindex = $( "div.carousel2").find(" li" ).index( this );
+ 
+  if ($(this).hasClass('active')) {
+          return false;
+   }else{
+  /*Removing Active Class Based On the Index*/
+   $activeElement.fadeOut(800, function() {
+     $(this).removeClass("active");
+    });
+	
+   $activeLi.removeClass("active");
+  
+  /*Adding Active Class Based On the Index*/
+  
+    $( "div.carousel2").find("div.article" ).eq( articleindex ).fadeIn(800, function() {
+    $(this).addClass("active");
+     });
+	
+ 
+  $( "div.carousel2").find("li").eq( articleindex ).addClass( "active" );
+  
+  /*Removing Active Class Based On the Index*/
+   $activeElement.fadeOut(800, function() {
+    $(this).removeClass("active");
+    });
+	
+  $activeLi.removeClass("active");}
+});
+
+/*Start of Life At Shell Carousel*/ 
+$( "div.carousel1").find("ul.control li" ).click(function() {
+ 
+  /*Getting and Storing the Object of Active Class Element*/
+  var $activeElement = $( "div.carousel1").find("div.active"); 
+  var $activeLi = $( "div.carousel1").find("li.active"); 
+  
+   /*Matching the index of li and article div*/   
+  var articleindex = $( "div.carousel1").find(" li" ).index( this );
+
+  
+  
+  /*Removing Active Class Based On the Index*/
+  $activeElement.fadeOut(800, function() {
+    $(this).removeClass("active");
+    });
+	
+  $activeLi.removeClass("active");
+  
+  /*Adding Active Class Based On the Index*/
+  
+   $( "div.carousel1").find("div.article" ).eq( articleindex ).fadeIn(800, function() {
+    $(this).addClass("active");
+    });
+	
+ 
+ $( "div.carousel1").find("li").eq( articleindex ).addClass( "active" );
+  
+  /*Removing Active Class Based On the Index*/
+  $activeElement.fadeOut(800, function() {
+    $(this).removeClass("active");
+    });
+	
+  $activeLi.removeClass("active");
+});
+ 
+
+$("div.carousel1").find("div.arrowNext").click(function() {
+
+
+    var $activeElement = $("div.carousel1").find("div.active"); 
+    var $activeLi = $("div.carousel1").find("li.active"); 
+	
+   /*checks if the article is last element*/
+   if($("div.carousel1").find("div.article.active").next("div.article").length > 0) {
+    
+	
+	/*For Article Elements */
+	$("div.carousel1").find("div.active" ).next().stop(true, true).fadeIn(800, function() {
+    $(this).addClass("active");
+    });
+	
+	$activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+    
+	/*For li Elements */
+	$("div.carousel1").find("li.active" ).next().addClass( "active" );
+    $activeLi.removeClass("active");
+    
+}else
+     {  
+	  
+	  
+	  $("div.carousel1").find("div.article:first-child").addClass("active");
+	  $("div.carousel1").find("li:first-child" ).addClass( "active" );
+    
+	
+	$activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+    $activeLi.removeClass("active");
+   } 	  
+		
+  });
+
+  $("div.carousel1").find("div.arrowPrevious").click(function() {
+  
+   var $activeElement = $("div.carousel1").find("div.active");
+   var $activeLi = $("div.carousel1").find("li.active"); 
+ 
+  if($("div.carousel1").find("div.article.active").prev("div.article").length > 0) {
+
+  
+  /*For Article Elements */
+  
+  $("div.carousel1").find("div.active" ).prev().stop(true, true).fadeIn(800, function() {
+    $(this).addClass("active");
+    });
+	
+  $activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+ 
+  /*For li Elements */
+  $("div.carousel1").find("li.active" ).prev().addClass( "active" );
+  $activeLi.removeClass("active");
+
+ }else
+     {  
+	  
+	  $("div.carousel1").find("div.article:last-child").addClass("active");
+	  $("div.carousel1").find("li:last-child" ).addClass( "active" );
+    
+	
+	$activeElement.stop(true, true).fadeOut(800).removeClass('active');
+	
+    $activeLi.removeClass("active");
+   } 	  
+		
+  });
+/*End of Life At Shell Carousel*/ 
+
+/*Top Menu Hover Effect*/
+  $( "#topLevelNavTable td.expanded").hover(
+  function() {
+  
+  
+    var $menuid =  $( this ).attr("menuid");
+	var $menux = $(document.getElementById($menuid));
+
+    $( this ).removeClass( "expanded" );
+    $( this ).addClass( "expandedhover" );
+	
+	$menux.parent().css("display", "block");
+	$menux.css("display", "block");
+	
+  }, function() {
+    var $menuid =  $( this ).attr("menuid");
+	var $menux = $(document.getElementById($menuid));
+    
+	 $( this ).addClass( "expanded" );
+     $( this ).removeClass( "expandedhover" );
+	
+	 $menux.parent().delay(2000).hide("slow");
+	 $menux.delay(2000).hide("slow");
+	
+  }
+);
+/*End of Top Menu Hover Effect*/
+
+$( "ul.horizNav li.parent").hover(
+  function() {
+ 
+ 
+    $( this ).addClass( "menuActive" );
+	
+	
+	
+  }, function() {
+   
+    $( this ).removeClass( "menuActive" );
+	
+	
+	
+  }
+);
+/* The My Services and Announcements */
+ $("div#myServices ul").find("li.accordionTrigger a").click(function() {
+  
+  
+  if( $(this).parent().hasClass("expandedItem")){
+  
+     $(this).parent().removeClass("expandedItem");
+  
+  }
+  else
+  $(this).parent().addClass("expandedItem").siblings().removeClass('expandedItem');;
+  
+  }
+);
+$("div#myAnnouncements ul").find("li.accordionTrigger a").click(function() {
+  
+  
+  if( $(this).parent().hasClass("expandedItem")){
+  
+     $(this).parent().removeClass("expandedItem");
+  
+  }
+  else
+  $(this).parent().addClass("expandedItem").siblings().removeClass('expandedItem');
+  
+  }
+);
+/* The share and price tabs */
+$("div.tabBox ul.ui-tabs-nav").find("li").click(function() {
+  
+ var no = $(this).index();
+ var numb = no + 1;
+ var blockid = $(('div#jqTabs-')+numb);
+ 
+ if( $(this).hasClass("ui-state-active")){
+ 
+   return false;
+ 
+  }
+  else
+  {
+    $(this).addClass('ui-state-active').siblings().removeClass('ui-state-active'); 
+    blockid.addClass('show').siblings('.ui-tabs-panel').removeClass('show');
+  }
+  
+  }); 
+});
+ 
+</script>
+
+</head>
+<body style="margin: 0px; padding: 0px;" class="" cz-shortcut-listen="true">
+      
+    <table cellspacing="0" cellpadding="0" border="0" class="width100" style="height: 51px;display: block;background: #EC2112;">
+        <tbody>
+            <tr>
+                <td class="displayBlock">
+                  <div id="wikiPageControl_cntrl_1_SiteHeader_Main" class="siteHeader">
+                   <div class="shellHeaderLinks">Welcome <div>Stewart Bairstow </div> | <a style="padding-left:10px;padding-right:10px;"  href="#">Who's Who</a> | <a style="padding-left:10px;" href="#">Code of Conduct and Helpline</a>  <a style="padding-left:10px;" href="#"><img  src="images/globalheader_help.jpg"></a></div>
+
+                </td>
+		        <td class="selectCell">
+					<select class="select" name="searchSource" align="right" id="searchSource">
+					 <option class="search-option" selected="selected">Select Source</option>
+					 <option class="search-option" value="Wiki">Wiki</option>
+					 <option class="search-option" value="Livelink">Livelink</option>
+					 <option class="search-option" value="All Sources">All Sources</option>
+					 <option class="search-option" value="Who's Who">Who's Who</option>
+					</select>
+					
+					
+				</td>
+			</tr>
+	        <tr>
+		  
+              <div id="wikiPageControl_cntrl_1_SiteHeader" class="wikiContent" style="border-width:0px;border-style:none;padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px; border-color:#FFFFFF;width:auto;">
+			    <div class="logoTop">
+                 <table cellspacing="0" cellpadding="0" style="border-bottom:1px solid #B3B3B3;" class="width100">
+                    <tbody>
+                        <tr>
+                            <td class="siteHeaderCell vertAlignTop displayBlock">
+                                <table cellspacing="0" cellpadding="0" border="0" class="width100">
+                                    <tbody>
+                                        <tr>
+                                            <td class="displayBlock">
+                                                <div id="wikiPageControl_cntrl_1_SiteHeader_Main" class="siteHeader">
+                                                <table border="0" cellpadding="0" cellspacing="0" style="width:1450px; margin:auto;"; >
+		                                         <tbody>
+												 <tr>
+			                                         <td class="siteHeaderImgCell"><a href="/home" target="_top" class="siteHeaderLink" style="display: inline-block;"><img src="images/logo.gif" alt="Shell Online" border="0" class="siteHeaderLogo"></a></td>
+			                                         <td>
+			  
+														<div class="positionRelative" style="float:right;">
+
+
+														   <div id="border_topRight" class="borderTopRight">
+																<table id="topLevelTable" cellpadding="0" cellspacing="0"><tbody><tr>
+																	<td class="topLevelNavCell"><table id="topLevelNavTable" cellpadding="0" cellspacing="0">
+																	<tbody>
+																	<tr id="topLevelNavRow">
+																	<td menuid="s1" class="expanded">
+																	 <a href="#" target="_top">My Shell</a>
+																	 <span class="screenreaderVisible" id="s1screenReader">
+																	 <a href="#" target="_top">My Shell - Shell Online</a>
+																	 <a href="#" target="_top">My Shell - Business</a>
+																	 <a href="#" target="_top">My Shell - Location</a></span></td>
+																	 <td class="expandedright" menuid="s1"></td>
+																	 <td><div><a href="#" target="_top">My Job</a></div></td>
+																	 <td><div><a href="#" target="_top">HR</a></div></td>
+																	 <td><div><a href="#" target="_top">Other Services</a></div></td>
+																	 <td><div><a href="#" target="_top">My News</a></div></td>
+																	 <td class="searchButtonCell">
+																		<div id="searchButton"></div></td>
+																	</tr>
+																	 </tbody>
+																	 </table>
+																	 </td>
+																		
+																</tr></tbody>
+																</table>
+															
+														    </div>
+
+															<div id="submenuplaceholder" class="borderAndSecondLevelNav">
+															<div class="expmenu" id="s1">
+																<div>
+																 <a href="#" target="_top">Shell Online</a>
+																 <a href="#" target="_top">Business</a>
+																 <a href="#" target="_top">Location</a>
+																</div>
+															</div>
+															</div> 
+
+														</div>
+
+
+
+												</div>
+												</td>
+											</tr>
+                                           </tbody>
+                                          </table>
+                                         </td>
+                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                </div>
+                
+    
+			</div>
+          </div>
+			
+			
+			
+			
+			</td>
+		</tr>
+		
+	</tbody></table>
+
+
+
+		 
+		
+		
+		</tr>
+		<tr>
+		
+		
+		  <div id="wikiPageControl_cntrl_50_WikiNavigation" class="wikiControl cms_Navigation ui-draggable" index="50">
+			
+<div>
+    
+    <div id="wikiPageControl_cntrl_50_Navigation" class="wikiContent" >
+				
+        
+<div class="wikiResponsiveContent">
+
+    <div class="navHorizDefault horizNavHolder">
+    <ul class="horizNav navBar">
+        
+    <li class="lvl1" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Shell Online</a></td>
+                    <td class="rightNavItem"><div class="menuExpandDown">&nbsp;</div></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl1 parent" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">About Shell</a></td>
+                    <td class="rightNavItem"><div class="menuExpandDown">&nbsp;</div></td>
+                </tr>
+            </tbody></table>
+		<div class="tierWrap">	
+		
+        <ul class="lvl2">
+        
+		 
+		 <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a id ="menu-title" href="#" target="_blank">About Shell</a></td>
+               
+                </tr>
+            </tbody></table>
+        </li>
+		
+		
+		
+    <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Who We Are</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">What We Do</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">What Makes Us Shell</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Quick links:</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Company presentations</a></td>
+                 </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Goal Zero</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Leadership Development</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Our Strategy</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Strategic Alignment</a></td>
+                 </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">The 5 Behaviours</a></td>
+                </tr>
+            </tbody></table>
+        </li></ul>
+		</div>
+		</li><li class="lvl1 parent" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Businesses</a></td>
+					<td class="rightNavItem"><div class="menuExpandDown">&nbsp;</div></td>
+                
+                </tr>
+            </tbody></table>
+		<div class="tierWrap">	
+       	
+        <ul class="lvl2">
+          	 <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a id ="menu-title" href="#" target="_blank">Businesses</a></td>
+               
+                </tr>
+            </tbody></table>
+        </li>
+    <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Downstream</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Projects &amp; Technology</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Upstream Americas</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Upstream International</a></td>
+                 </tr>
+            </tbody></table>
+        </li></ul></div></li><li class="lvl1 parent" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Functions</a></td>
+					<td class="rightNavItem"><div class="menuExpandDown">&nbsp;</div></td>
+                
+                </tr>
+            </tbody></table>
+			<div class="tierWrap">	
+       
+        <ul class="lvl2">
+          	 <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a id ="menu-title" href="#" target="_blank">Functions</a></td>
+               
+                </tr>
+            </tbody></table>
+        </li>
+    <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Finance</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">HR &amp; Corporate</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Legal</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Other functional areas:</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Safety, Environment and Social Performance</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">CO2</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Contracting &amp; Procurement</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Global Technical Functions</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Government Relations</a></td>
+                 </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Information Technology</a></td>
+                </tr>
+            </tbody></table>
+        </li></ul>
+		</div>
+		</li><li class="lvl1" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Navigate by Topic</a></td>
+					<td class="rightNavItem"><div class="menuExpandDown">&nbsp;</div></td>
+                
+                </tr>
+            </tbody></table>
+        </li><li class="lvl1" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Locations</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl1" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">A to Z</a></td>
+                 </tr>
+            </tbody></table>
+        </li><li class="lvl1 parent menuActive" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Tools &amp; Resources</a></td>
+					<td class="rightNavItem"><div class="menuExpandDown">&nbsp;</div></td>
+                
+                </tr>
+            </tbody></table>
+		<div class="tierWrap">	
+       	
+        <ul class="lvl2">
+        	 <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a id ="menu-title" href="#" target="_blank">Tools &amp; Resources</a></td>
+               
+                </tr>
+            </tbody></table>
+        </li>
+	
+        <li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_blank">My News</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Shell Tube</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Shell Wiki</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_blank">Moreover Newsdesk</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_blank">My Maps</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">My Travel</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">My Workspace</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_blank">External Information Sources</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Global Library Services</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Ability Portal</a></td>
+                </tr>
+            </tbody></table>
+        </li><li class="lvl2" direction="">
+            <table cellspacing="0">
+                <tbody><tr>
+                    <td class="leftNavItem"><a href="#" target="_top">Which tool should I use?</a></td>
+                   </tr>
+            </tbody></table>
+        </li></ul></div></li></ul>
+    </div></div>
+    
+			</div>
+    
+         
+</div>
+
+		</div>
+		
+		
+		
+		</tr>
+	    <tr>
+		  <td>
+		    
+		     <div id="wikiPageControl_cntrl_42_PanelContent" class="wikiContent" style="border-width:0px;border-style:none;padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px; border-color:#ffffff;width:1450px;margin:auto;">
+				<div class="News Carousel_42">Our Business Our Character<a class="help" href="#"><img src="images/header_help.jpg"></a></div>
+            <div class="wikiResponsiveContent">
+			
+			<div class="wikiRenderTemplate newsCarousel carousel3 RecordLinkStatistics">
+        <div class="canvas repeater" style="height: 400px;">
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/OBOC.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">3D printing saves months of work</a><div class="dateDiv">28-Jan-2015</div><p><span class="summary">New technology Shell needs to unlock ultra-deep-water energy faced the prospect of delays from regulators. But one Shell team in the US had an idea.</span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+            </div>
+        
+
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/Stones-OBOC.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">CEO BEN VAN BEURDEN: "GOAL ZERO IS GOOD BUSINESS"</a><div class="dateDiv">26-Jan-2015</div><p><span class="summary">In a new video on safety performance, Ben explores the real value to Shells business from caring for people and the environment.</span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+            </div>
+        
+
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/Safety-Ben_OBOC.jpg" class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">30 teams that revolutionised UI's performance</a><div class="dateDiv">23-Jan-2015</div><p><span class="summary">Deploying their version of "credible, competitive and affordable", meet the winners in this year's Upstream International Impact Awards.</span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+             </div>
+        
+
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/UI-Impact-Awards-OBOC.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">Shell to announce 2014 Q4 and Year End results</a><div class="dateDiv">22-Jan-2015</div><p><span class="summary">Very soon, Shell will release its 2014 Q4 and Year End results. Find out when our competitors are reporting theirs. </span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+            </div>
+        
+
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/OBOC.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">Enriching our world view</a><div class="dateDiv">21-Jan-2015</div><p><span class="summary">With more data than Google, the Shell My Maps platform is our eyes on the ground for investment decisions, asset health checks and crisis response. Could it change how you work?</span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+    
+            </div>
+        
+
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/My-Maps-OBOC.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">Ben salutes Shell's top performers</a><div class="dateDiv">19-Jan-2015</div><p><span class="summary">Improving Shell's performance in remote and challenging areas meet the winners of the 2014 CEO's HSSE & SP Awards.</span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+    
+            </div>
+        
+
+            <div class="article">
+                <div class="imgDiv" style="height: 400px;"><a href="#" target="_top"><img src="images/CEO-HSSE-OBOC.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                <div class="txtDiv"><a class="titleLink" href="#">Look into our digital future </a><div class="dateDiv">16-Jan-2015</div><p><span class="summary">An all-new design for Shell's external websites is being tested in the UK, and will be rolling out around the world this year and next. Take a look and tell us what you think.</span></p></div>
+                <div class="arrowDiv"><div class="arrowPrevious"></div><div class="arrowNext"></div></div>
+            </div>
+        </div>
+        <div class="controlDiv">
+            <ul class="control repeater">
+                <li>&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+				<li>&nbsp;</li>
+            </ul>
+            <div class="linksDiv">
+                             <div class="customDiv"></div>
+   
+            </div>
+        </div>
+    </div>
+	
+	
+	</div>
+        
+			</div> 
+		  
+		  
+		  
+		  
+		  </td>
+		  
+		
+		
+		</tr>
+		<tr>
+		
+		    <div class="coloumn-back" class="width100">
+		    <div class="stewart-content" style="height:270px;width:1450px;margin:auto;">
+			   <div class="stewart-heading">STEWART BAIRSTOW'S CONTENT</div>
+			   <div class="full-coloumn">
+			   <div id="myTasks" class="coloumn-content">
+                    <div class="myContentSubheading">
+                     My Tasks</div>
+                    <ul id="myTasksList">
+                      <li>No Tasks found.</li>
+                   </ul>
+               </div>
+			   <div id="myNavigation" class="coloumn-content">
+                   <div class="myContentSubheading">
+                   My Navigation</div>
+                  <ul id="myNavigationList">
+                      <li><a href="http://sww.shell.com/home/shell/index.html" target="_top">About Shell</a></li>
+                     <li><a href="http://sww.shell.com/home/locations/locations.html" target="_top">Locations</a></li>
+                 </ul>
+             </div>
+			 <div id="myServices" class="coloumn-content">
+        <div class="myContentSubheading">
+            My Services</div>
+        <ul>
+            <li class="accordionTrigger"><a href="#" onclick="return false;" class="expandHyperlink" target="_parent">My Recently Used Services</a>
+                <div id="servicesExpand1">
+                    <ul id="myRecentServicesList">
+                        <li class="notFound">No Services found.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="accordionTrigger"><a  onclick="return false;" href="#" class="expandHyperlink" target="_parent">My Favourite Services</a>
+                <div id="servicesExpand2">
+                    <ul id="myFavoriteServicesList">
+                        <li class="notFound">No Services found.</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+	<div id="myAnnouncements" class="coloumn-content">
+        <div class="myContentSubheading">
+            Announcements</div>
+        <ul>
+		<li class="accordionTrigger"><a  onclick="return false;" href="#" class="expandHyperlink" target="_parent">Travel Alerts (0)</a>
+                <div id="announcementsExpand1">
+		    <ul id="myannouncementsList">
+                        <li class="notFound">Bahrain | Temporary Security</li>
+                    </ul>
+                </div>
+            </li>
+		
+		<li class="accordionTrigger"><a href="#" onclick="return false;" class="expandHyperlink" target="_parent">IT Alerts and Changes (0)</a>
+		<div id="announcementsExpand1">
+		           <ul id="myannouncementsView">
+                        <li class="notFound">View more</li>
+                    </ul>
+                </div>
+            </li>
+            
+        </ul>
+		</div>
+		
+		
+	 <div id="myPreferences" class="coloumn-content">
+        <div class="myContentSubheading">
+            My Preferences</div>
+        <ul>
+            <li><a href="https://sww-my.shell.com/EditProfile.aspx" target="_top">Edit My Profile</a></li>
+            <li id="editPreferences"><a href="#" target="_parent">Edit My Preferences</a>
+                <div id="preferencesSaved" style="display: none;">
+                    Your preferences have been saved</div>
+            </li>
+        </ul>
+    </div>
+		
+	
+			 </div>
+			 </div>
+		</div>
+		    
+			
+			
+			
+		  
+		
+		
+		</tr>
+			<tr>
+		
+		    <td class="life-back" class="width100">
+		    <div class="life-content" style="height:460px;width:1450px;margin:auto;">
+			   <div class="life-heading">LIFE AT SHELL</div>
+			   <div class="full-sectiom">
+			   <div id="life-shell-one" class="coloumn-life-content">
+			      <div style="width:475px;height:250px;overflow:hidden;"><img src="images/Midstream-LAS.png"  class="width100"/></div>
+                        <div class="shelltxtDiv">
+						  <div class="shelltitleLink" href="#">Shell makes history on the NYSE</div>
+					      <p><span class="summary">Amid the bell-ringing and high-fives comes a moment to be proud of on the world's biggest stock exchange.</span></p>
+						  <a href="#" class="MoreLinks"> MORE NEWS</a> 
+						</div>
+                </div>
+			   <div  id="life-shell-two"  class="coloumn-life-content">
+			       <div style="width:475px;height:250px;overflow:hidden;"><img src="images/Trade-Secrets-LAS.png"  class="width100"/></div>
+                   <div class="shelltxtDiv">
+					  <div class="shelltitleLink" href="#">Don't risk Shell's "crown jewels"</div>
+					  <p><span class="summary">From the Coca-Cola recipe to Shell's Gas-to-Liquids catalyst formulation, keeping trade secrets safe is worth billions.</span></p>
+				      <a href="#" class="MoreLinks"> MORE NEWS</a>
+				   </div>
+    
+             </div>
+			 <div id="life-shell-three" class="coloumn-life-content">
+			  <div style="width:475px;height:250px;overflow:hidden;"><img src="images/Data-box-LAS.png"  class="width100"/></div>
+              <div class="shelltxtDiv">
+	            <div class="shelltitleLink" href="#">552 million identities exposed in just one year</div>
+				<p><span class="summary">Use this to fight back, protect yourself and those around you.</span></p>
+				  <a href="#" class="MoreLinks">MORE NEWS</a>
+				
+			  </div>
+        
+       
+        </div>
+	
+		
+	
+			 </div>
+			 </div>
+		</td>
+		    
+			
+			
+			
+		  
+		
+		
+		</tr>
+		<tr>
+		
+		    <td class="media-back" class="width100">
+		    <div class="media-content" style="height:445px;width:1450px;margin:auto;">
+			  <div class="media-img">
+			    <img src="images/shell-media.png"  class="width100"/>
+              </div>
+              <div class="external-news">
+	   <ul class="news-list">
+	        <li class="newstableItem">
+                <a href="#" target="_blank" title="Iraq signs an agreement worth 11 billion $ with Shell to set up a petrochemical complex">Markets Live: Rate-cut fever rises</a>
+	        </li>
+        
+
+	        <li class="newstableItem">
+                <a href="#" target="_blank" title="Opponents push back on Seattle Port/Shell Oil plan">Shell to spend $1 bn to drill exploratory oil wells in Arctic</a>
+	        </li>
+        
+
+	        <li class="newstableItem">
+                <a href="#" target="_blank" title="Qatar keen on building on Â£30bn UK assets">Potpourri: Plowing 101</a>
+	        </li>
+        
+
+	        <li class="newstableItem">
+                <a href="#" target="_blank" title="Law enforcement: Two weeks of police report ... 112614">Chevron takes control of BP deepwater finds as rout worsens</a>
+	        </li>
+        
+
+	        <li class="newstableItem">
+                <a href="#" target="_blank" title="Royal Dutch Shell to build petrochemicals plant in Iraq">More Oil Trains Could Roll Through Puget Sound To Shell Refinery</a>
+	        </li>
+        
+
+	        <li class="newstableItem">
+                <a href="#" target="_blank" title="Groups Call On Port Of Seattle To Reconsider Lease To Shell Oil">Ben salutes Shell's top performers</a>
+	        </li>
+		 </ul>
+			<div class="more-external-news">
+               <a  class="MoreLinks" href="#">MORE EXTERNAL NEWS</a>
+			   <br/>
+               <i><b>Note:</b> This is an automated feed with content collated from external sources.</i>
+            </div>
+       
+    
+		 
+    </div>
+	
+	        <div class="frequent-news">
+			    <div class="frequent-news-heading">MOST FREQUENTLY READ NEWS</div>
+			     <div class="frequent-news-list">
+                <ul class="frequent-news-full-list">
+	                 <li class="frequent-news-Item">
+                    <a href="#" target="_blank" title="BP freezes global salaries">Announcing Shell's Q4 and Year End Results</a>
+	            </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="3D printing saves months of work">Shell to announce 2014 Q4 and Year End results</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="Shell to announce 2014 Q4 and Year End results">3D printing saves months of work</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="CEO Ben van Beurden">Shell makes history on the NYSE</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="Royal Dutch Shell 4Q 2014 â€” Forecast">How is China using less coal?</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="Enriching our world view">Enriching our world view</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" >CEO Ben van Beurden: "Goal Zero is good business"</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="30 teams that revolutionised UIâ€™s performance">Royal Dutch Shell to cut $15 billion in costs</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="How is China using less coal?">BP freezes global salaries</a>
+	        </li>
+        
+
+	        <li class="frequent-news-Item">
+                <a href="#" target="_blank" title="Shell makes history on the NYSE">Worst timing ever Shell to build $11 billion petrochemical plant in Iraq</a>
+	        </li>
+        </ul>
+    </div></div>
+        
+			</div>
+        
+        
+        
+    </td>
+
+		
+	</tr>
+	<tr>
+	
+	 		    <td class="themes-safety-row width100">
+                  <div class="themes-safety" style="height:490px;width:1450px;margin:auto;">
+				   <div class="themes">
+			 		<div class="newsCarousel carousel2 RecordLinkStatistics">
+        <div class="canvas repeater">
+            <div class="article active">
+                <table>
+                    <tbody><tr>
+                        <td class="imgTd ">
+                            <div class="imgDiv" style="width:640px;height: 340px;"><a href="#" target="_top"><img src="images/coal-to-gas-OS.jpg" class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                        </td>
+                        <td class="txtTd">
+                            <div class="txtDiv">
+						
+                                <div class="categoryDiv">Outside Story<a class="help" href="#"><img src="images/header_help.jpg"></a></div>
+                                <a class="titleLink" href="#">How is China using less coal?</a><div class="dateDiv">28-Jan-2015</div><p><span class="summary">Smarter Trends - Six factors that helped the world's biggest carbon emitter reduce coal consumption for the first time this century?</span></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="fader"></div>
+        
+
+            <div class="article">
+                <table>
+                    <tbody><tr>
+                        <td class="imgTd ">
+                            <div class="imgDiv" style="width:640px;height: 340px;"><a href="#" target="_top"><img src="images/BP-new-OS.jpg" onload="newsCarouselHeightUpdate($(this), $(this).closest('div.wikiContent'))" class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                        </td>
+                        <td class="txtTd">
+                            <div class="txtDiv">
+                                   <div class="categoryDiv">Outside Story<a class="help" href="#"><img src="images/header_help.jpg"></a></div>  
+								   <a class="titleLink" href="#">BP freezes global salaries</a><div class="dateDiv">27-Jan-2015</div><p><span class="summary">Reuters - CEO Bob Dudley says "tougher external environment" means BP's 84,000 employees will face wage cap in 2015. </span></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="fader"></div>
+        
+
+            <div class="article">
+                <table>
+                    <tbody><tr>
+                        <td class="imgTd ">
+                            <div class="imgDiv" style="width:640px;height: 340px;"><a href="#" target="_top"><img src="images/Davos-OS.jpg" class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                        </td>
+                        <td class="txtTd">
+                            <div class="txtDiv">
+                                   <div class="categoryDiv">Outside Story<a class="help" href="#"><img src="images/header_help.jpg"></a></div>  
+								   <a class="titleLink" href="#">What's it like being a woman at Davos 2015?</a><div class="dateDiv">26-Jan-2015</div><p><span class="summary">The Guardian - With female participants making up just 17% of this year's summit, questions are being asked about corporate diversity.</span></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="fader"></div>
+        
+
+            <div class="article">
+                <table>
+                    <tbody><tr>
+                        <td class="imgTd ">
+                            <div class="imgDiv" style="width:640px;height: 340px;"><a href="#" target="_top"><img src="images/King-Abdullah_OS.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                        </td>
+                        <td class="txtTd">
+                            <div class="txtDiv">
+                                   <div class="categoryDiv">Outside Story<a class="help" href="#"><img src="images/header_help.jpg"></a></div>  
+								   <a class="titleLink" href="#">Saudi Arabia's King Abdullah dies</a><div class="dateDiv">23-Jan-2015</div><p><span class="summary">New York Times - Royal family moves quickly to assure a smooth transition of power in the world’s largest exporter of oil. </span></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="fader"></div>
+        
+
+            <div class="article">
+                <table>
+                    <tbody><tr>
+                        <td class="imgTd">
+                            <div class="imgDiv" style="width:640px;height: 340px;"><a href="#" target="_top"><img src="images/Total-CEO-OS.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                        </td>
+                        <td class="txtTd">
+                            <div class="txtDiv">
+                                   <div class="categoryDiv">Outside Story<a class="help" href="#"><img src="images/header_help.jpg"></a></div>  
+								   <a class="titleLink" href="#">Total cuts capital spend 10% - report</a><div class="dateDiv">21-Jan-2015</div><p><span class="summary">Upstream Online - New CEO Patrick Pouyanné pledges 2015 reductions and group-wide hiring freeze during interview with The Financial Times.</span></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="fader"></div>
+        
+
+            <div class="article">
+                <table>
+                    <tbody><tr>
+                        <td class="imgTd">
+                            <div class="imgDiv" style="width:640px;height: 340px;"><a href="#" target="_top"><img src="images/6.jpg"  class="width100"></a><div class="arrowDiv"><div class="arrowPrevious">&#9668;</div><div class="arrowNext">&#9658;</div></div></div>
+                        </td>
+                        <td class="txtTd">
+                            <div class="txtDiv">
+                                   <div class="categoryDiv">Outside Story<a class="help" href="#"><img src="images/header_help.jpg"></a></div>  
+								   <a class="titleLink" href="#">7 themes to dominate Davos</a><div class="dateDiv">19-Jan-2015</div><p><span class="summary">The Guardian - What will world political and business leaders discuss this year in the small Swiss ski-resort?</span></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="fader"></div>
+        </div>
+        <div class="controlDiv">
+            <ul class="control repeater">
+                <li><div><img src="images/coal-to-gas-OS.jpg" class="article0 width100"></div></li>
+            
+
+                <li><div><img src="images/BP-new-OS.jpg" class="article1 width100"></div></li>
+            
+
+                <li><div><img src="images/Davos-OS.jpg" class="article2 width100"></div></li>
+            
+
+                <li><div><img src="images/King-Abdullah_OS.jpg"  class="article3 width100"></div></li>
+            
+
+                <li><div><img src="images/Total-CEO-OS.jpg"  class="article4 width100"></div></li>
+            
+
+                <li><div><img src="images/6.jpg"  class="article5 width100"></div></li>
+            </ul>
+            <div class="linksDiv">
+                
+                
+                
+                
+                <div class="customDiv"><a href="#" class="MoreLinks" title="More News">MORE NEWS </a></div>
+            </div>
+        </div>
+    </div>
+			
+			  
+			
+			
+			
+			
+			</div>
+			
+			 <div class="safety-day-content">
+			  <img src="images/safety-day.jpg"  class="width100"/>
+			  <div class="safety-day-header">
+			  <a href="#"><img src="images/safety-day-click.jpg"  class="width100"/></a>
+			  </div>
+			  <div id="content">
+                    <div id="safetySection">
+				        <div id="safetyZone">Goal Zero</div>
+                        <div class="messages">
+                            <a href="#" target="_top" id="MessageNoHarm">No Harm: 174 days</a>
+							<a href="#" target="_top" id="messageNoLeaks">No Leak: 88 days</a>
+                        </div>
+                    </div>
+			    </div>
+				<div class="safety-news">
+				  <ul class="safety-news-list">
+	        <li class="newstableItem">
+                <a href="#" target="_blank">CEO Ben van Beurden: "Goal Zero is good business"</a>
+	        </li>
+        
+
+	        <li class="newstableItem">
+                <a href="#" target="_blank">Ben salutes Shell's top performers</a>
+				
+	        </li>
+        
+               </ul>
+				<div class="safety-more"><a href="#" class="MoreLinks">MORE NEWS</a></div>
+				</div>
+				
+             </div>
+			
+			</div>
+			
+			 
+			
+			
+			
+			
+			</td>
+	
+	
+	
+	
+	</tr>
+	<tr>
+	    <td class="feedback-row width100">
+                  <div class="feedback-shares" style="height:340px;width:1450px;margin:auto;">
+				   <div class="feedback">
+				     <div class="feedback-more"><a href="#" class="feedback-Link">CLICK HERE TO GO TO THE FEEDBACK PAGE </a></div>
+				 
+				   
+				   
+				   
+				   </div>
+				    <div class="shares-content">
+						<div class="cell_stocks">
+                           <div class="tabBox">
+						     <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                              <li class="ui-state-default ui-corner-top ui-tabs-selected"><a id="firstTab" target="_parent">SHARES</a></li>
+                              <li class="ui-state-default ui-corner-top"><a id="secondTab" target="_parent">PRICES</a></li>
+                              <li class="ui-state-default ui-corner-top"><a id="thirdTab"  target="_parent">PERFORMANCE</a></li>
+                            </ul>
+						     <div id="jqTabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" style="height: 259px;">      
+                    <div class="panelWrapper">     
+                        <table cellpadding="0" cellspacing="0" border="0" id="stocks-table"><tbody>
+						<tr><td class="market-name">Amsterdam</td></tr>
+						<tr class="shares">
+						<td class="share-name"><a href="#" target="_blank">RDSA</a></td>
+						<td class="current-price">&#8364;27.84</td>
+						<td class="trend"><div class="sharesUp">&#8364;-0.52</div></td>
+					
+						</tr>
+						<tr class="shares">
+						<td class="share-name"> 
+						   <a href="#" target="_blank">RDSB</a>
+						</td>
+						<td  class="current-price">&#8364;29.00</td>
+					    <td class="trend"><div class="sharesUp">&#8364;-0.40</div></td>
+					
+						</tr>
+						
+						<tr><td class="market-name">London</td></tr>
+						<tr class="shares">
+						<td class="share-name"><a href="#" target="_blank">RDSA</a></td>
+						<td class="current-price">2075.50p</td>
+						<td class="trend"><div class="sharesUp">-42.00p</div></td>
+					</tr>
+						<tr class="shares">
+						<td  class="share-name"> <a href="#" target="_blank">RDSB</a></td>
+						<td  class="current-price">2163.50p</td>
+					  	<td class="trend"><div class="sharesUp">-33.50p</div></td>
+					
+						</tr>
+					
+						<tr><td class="market-name">New York</td></tr>
+						<tr class="shares">
+						<td  class="share-name"> <a href="#" target="_blank">RDSA</a></td>
+						<td class="current-price">US$61.45</td>
+						<td class="trend"><div class="sharesUp">US$-0.86</div></td>
+						</tr>
+						<tr class="shares">
+						<td class="share-name"> <a href="#" target="_blank">RDSB</a></td>
+						<td  class="current-price">US$63.99</td>
+						<td  class="trend"><div class="sharesUp">US$-0.91</div>
+						</td>
+						</tr>
+						</tbody>
+						</table>
+						<br><div class="lastUpdated">Share price data is delayed by at least 20 minutes </div>
+                        <br>
+                    </div>
+                </div>
+                <div id="jqTabs-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" style="height: 259px;">
+                    <div class="panelWrapper">  
+                        <table cellpadding="0" cellspacing="0" border="0" id="stocks-table">
+						                                <tbody>
+						                                    <tr class="shares">
+															  <td  colspan="3" class="market-name">Crude Oil</td></tr>
+														      <tr class="shares">
+															  <td  class="share-name"><a href="#">Brent</a></td>
+															  <td  class="current-price">US$57.16</td>
+															  <td  class="trend"><div class="sharesUp">US$0.46</div></td>
+															 </tr>
+															 <tr class="shares"><td  class="share-name"><a href="#">Tapis</a></td>
+															  <td  class="current-price">US$61.24</td>
+															  <td  class="trend"><div class="sharesUp">US$1.39</div></td>
+															 </tr>
+															 <tr class="shares">
+															   <td  class="share-name"><a href="#">WTI</a></td>
+															   <td  class="current-price">US$52.78</td>
+															   <td  class="trend"><div class="sharesUp">US$0.73</div></td>
+															 </tr>
+															 <tr class="shares">
+															  <td  class="share-name"><a href="#">Month+1</a></td>
+															  <td  class="current-price">US$2.63</td>
+															  <td  class="trend"><div class="sharesUp">US$0.02</div></td>
+															 </tr>
+															 <tr class="shares">
+															  <td  class="share-name"><a href="#">EU Simple</a></td><td  class="current-price">US$0.68</td>
+															  <td  class="trend"><div class="sharesUp">US$-0.14</div></td>
+															  </tr>
+															  <tr class="shares">
+															  <td  class="share-name"><a href="#">EU Complex</a></td><td  class="current-price">US$4.38</td>
+						                                      <td  class="trend"><div class="sharesUp">US$0.21</div></td>
+															  </tr>
+													    </tbody>
+														</table>
+                    </div>
+                </div>
+                <div id="jqTabs-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" style="height: 259px;">
+                    <div class="panelWrapper">   
+                        
+                            <br>
+                            <a href="#" target="_parent">Results</a>
+                            <br>
+                            <a href="#" target="_parent">Group Scorecard</a>
+                            <br>
+                            <a href="#" target="_parent">Competitive Performance</a>            
+                      
+                         
+                    </div>
+                </div>
+						   </div>
+                        </div>
+					
+			        </div>
+				</div>	
+				   
+				   
+		</td>		   
+			 	
+	   
+	
+	
+	
+	</tr>
+	<tr>
+	<td>
+	<div class="social width100">
+	  <div class="social-row-icons" style="width:1450px;margin:auto;height:75px;">
+	    <div class="social-icons">
+            <ul style="padding-left:0px;margin:0px;height: 50px;width:120px">		
+	                <li><a href="#"><div class="icon-facebook" /></div></a></li>
+                    <li><a href="#"><div class="icon-twitter" /></div></a></li>
+			</ul>		
+         </div>
+	  
+	  
+	  </div>
+	
+	
+	
+	
+	</div>
+	</td>
+	
+	</tr>
+	<tr>
+	
+	 <td>
+	 
+	      <div class="footerWrapper width100"  style="width:1450px;margin:auto;height:300px;padding-top: 25px;">
+            <div class="footerSection">
+                <h2>Layout Details</h2>
+                <div>
+                    <ul class="footerItems">
+                        <li class="footerItem-modifiedBy">
+                            <strong>Last Updated:</strong> <span>1/28/2015</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footerSection">
+                <h2>Actions</h2>
+                <div>
+                    <ul class="footerItems">
+                        <li class="footerItem-structure">
+                            <a href="#">Manage iD CMS Content</a></li>
+                        <li class="footerItem-print">
+                            <a href="#" target="_blank">Print this page</a></li>
+                        
+                        <li class="footerItem-fav">
+                            <a href="#">Add to Favorites</a></li>
+                        <li class="footerItem-send">
+                            <a href="#" title="Open in new window">Send to Colleague</a></li>
+                        <li class="footerItem-send"><a href="#">Report Migration Issue</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+			<div class="footerSection">
+                <h2>
+                    General</h2>
+                <div>
+                  	
+                        <ul class="footerItems">
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Privacy Information</a></li>
+							<li><a href="#">SWW Information</a></li>
+							<li><strong>Classification:</strong> <a style="CURSOR: pointer;" href="#">Restricted</a></li>
+							
+                        </ul>
+                    
+					</div>
+			    </div>
+            </div>
+        </div>
+	 
+	 
+	 
+	 
+	 
+	 </td>
+	
+	
+	
+	
+	
+	</tr>
+	
+	</tbody>	
+   </table>
+  
+
+   
+   
+
+</body>
+
+
+</html>
